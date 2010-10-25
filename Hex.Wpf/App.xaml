@@ -1,0 +1,19 @@
+﻿<Application x:Class="Hex.Wpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Startup="ApplicationStartup">
+    <Application.Resources>
+        <LinearGradientBrush x:Key="BackgroundBrush"
+            EndPoint="0,0" StartPoint="0,1">
+            <GradientStop Color="#FFFFF0F0"
+                          Offset="0" />
+            <GradientStop Color="#FFF0F0FF"
+                          Offset="1" />
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="PlayerXBrush" Color="Blue" />
+        <SolidColorBrush x:Key="PlayerYBrush" Color="Red" />
+        <Style x:Key="GradientWindowStyle">
+            <Setter Property="Control.Background" Value="{StaticResource BackgroundBrush}" />
+        </Style>
+    </Application.Resources>
+</Application>

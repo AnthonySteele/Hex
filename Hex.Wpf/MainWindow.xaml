@@ -1,0 +1,25 @@
+﻿<Window x:Class="Hex.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:Controls="clr-namespace:Hex.Wpf.Controls" Title="Hex" Height="450" Width="625"
+        Style="{StaticResource GradientWindowStyle}"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Controls:HexBoard DataContext="{Binding HexBoard}"  Grid.Row="1" />
+        <DockPanel Grid.Row="2" LastChildFill="False">
+            <Controls:HexGameStatus DockPanel.Dock="Left" DataContext="{Binding HexBoard}" />
+            <Button DockPanel.Dock="Right" Margin="2" Padding="8,2,8,2" Command="{Binding ComputerMoveCommand}" CommandParameter="{Binding}">Computer Move</Button>
+            <Button DockPanel.Dock="Right" Margin="2" Padding="8,2,8,2" Command="{Binding ClearCommand}" CommandParameter="{Binding}">Clear</Button>
+            <Button DockPanel.Dock="Right" Margin="2" Padding="8,2,8,2" Command="{Binding ShowDebugBoardCommand}" CommandParameter="{Binding}">Debug</Button>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FA2462A0-E9BC-4EEA-BE3C-FBEEAEFE1B52}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hex.Wpf</RootNamespace>
+    <AssemblyName>Hex.Wpf</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\DoComputerMoveCommand.cs" />
+    <Compile Include="Controls\GameSummary.cs" />
+    <Compile Include="Controls\GetDebugDataCommand.cs" />
+    <Compile Include="Controls\HexCellDebugDataViewModel.cs" />
+    <Compile Include="Debug\DebugBoardWindow.xaml.cs">
+      <DependentUpon>DebugBoardWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Debug\DebugBoardWindowViewModel.cs" />
+    <Compile Include="Debug\DoComputerMoveCommand.cs" />
+    <Compile Include="Helpers\GenericCommand.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Model\ComputerMoveCalculator.cs" />
+    <Compile Include="Model\ComputerMoveData.cs" />
+    <Compile Include="Model\GameType.cs" />
+    <Compile Include="SelectGame\ComputerSkillLevel.cs" />
+    <Compile Include="SelectGame\SelectGameViewModel.cs" />
+    <Compile Include="SelectGame\SelectGameWindow.xaml.cs">
+      <DependentUpon>SelectGameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowDebugBoardCommand.cs" />
+    <Page Include="Controls\HexBoard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\HexGameStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Debug\DebugBoardWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseViewModel.cs" />
+    <Compile Include="Controls\HexBoard.xaml.cs">
+      <DependentUpon>HexBoard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HexBoardViewModel.cs" />
+    <Compile Include="Controls\HexCell.cs" />
+    <Compile Include="Controls\HexCellViewModel.cs" />
+    <Compile Include="Controls\HexGameStatus.xaml.cs">
+      <DependentUpon>HexGameStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ActionCommand.cs" />
+    <Compile Include="Helpers\VisiblityHelpers.cs" />
+    <Compile Include="HexagonGeometry.cs" />
+    <Compile Include="HexGameStatusViewModel.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="SelectGame\SelectGameWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hex.Board\Hex.Board.csproj">
+      <Project>{AED1ABF2-3B81-4964-A75B-2F8A1372AF32}</Project>
+      <Name>Hex.Board</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hex.Engine\Hex.Engine.csproj">
+      <Project>{582C5779-379A-4741-B227-22FA1722C95E}</Project>
+      <Name>Hex.Engine</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

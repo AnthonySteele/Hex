@@ -1,0 +1,20 @@
+﻿<Window x:Class="Hex.Wpf.Debug.DebugBoardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Controls="clr-namespace:Hex.Wpf.Controls" 
+        Title="Debug Board" Height="350" Width="500"
+        Style="{StaticResource GradientWindowStyle}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <Controls:HexBoard DataContext="{Binding HexBoard}" />
+        <DockPanel Grid.Row="1" LastChildFill="False">
+            <Button DockPanel.Dock="Right" Margin="2" Padding="8,2,8,2" Command="{Binding DoComputerMoveCommand}" CommandParameter="{Binding}">Do Computer move</Button>
+        </DockPanel>
+    </Grid>
+</Window>
