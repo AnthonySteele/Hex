@@ -1,0 +1,14 @@
+
+_ReSharper.Hex/
+Hex.Board.Test/bin/*
+Hex.Board.Test/obj/*
+Hex.Board/bin/*
+Hex.Board/obj/*
+Hex.Engine.Test.Slow/bin/*
+Hex.Engine.Test.Slow/obj/*
+Hex.Engine.Test/bin/*
+Hex.Engine.Test/obj/*
+Hex.Engine/bin/*
+Hex.Engine/obj/*
+Hex.Wpf/bin*
+Hex.Wpf/obj/*
