@@ -1,4 +1,12 @@
-﻿namespace Hex.Board
+﻿//-----------------------------------------------------------------------
+// <copyright> 
+// Copyright (c) Anthony Steele 
+//  This source code is part of Hex http://github.com/AnthonySteele/Hex
+//  and is made available under the terms of the Microsoft Reciprocal License (Ms-RL)
+//  http://www.opensource.org/licenses/ms-rl.html
+// </copyright>
+//----------------------------------------------------------------------- 
+namespace Hex.Board
 {
     using System;
     using System.Collections.Generic;
@@ -40,21 +48,21 @@
                 return 0;
             }
 
-            bool x_low = loc.X == 0;
-            bool x_high = loc.X == (this.BoardSize - 1);
-            bool y_low = loc.Y == 0;
-            bool y_high = loc.Y == (this.BoardSize - 1);
+            bool xLow = loc.X == 0;
+            bool xHigh = loc.X == (this.BoardSize - 1);
+            bool yLow = loc.Y == 0;
+            bool yHigh = loc.Y == (this.BoardSize - 1);
 
-            if (x_low || y_high || x_high || y_low)
+            if (xLow || yHigh || xHigh || yLow)
             {
                 // east and west pole cells have 2 neighbours
-                if ((x_low && y_low) || (x_high && y_high))
+                if ((xLow && yLow) || (xHigh && yHigh))
                 {
                     return 2;
                 }
 
                 // top and bottom poles have 3 neighbours
-                if ((x_low && y_high) || (x_high && y_low))
+                if ((xLow && yHigh) || (xHigh && yLow))
                 {
                     return 3;
                 }
