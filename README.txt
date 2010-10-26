@@ -11,7 +11,12 @@ The computer player can be slow, especially if the board is large and the skill 
 
 The user interface is in WPF.
 
+Licence: 
+Netsy is Open source, and is made available under the terms of the Microsoft Reciprocal License (Ms-RL).
+This licence can be found in the included file "License.txt"
+Or online at  http://www.opensource.org/licenses/ms-rl.html
+
 History:
-I have tinkered with this code on several occasions. It was the first non-trivial program that I wrote in C#. I updated it to try out generic lists when C# 2.0 came out. In 2010 I made a WPF interface, reformatted the code as per StyleCop, made more test cases and revisited the minimax algorithm, and finally upload it to github. 
+I have tinkered with this code on several occasions. It was the first non-trivial program that I wrote in C#. I updated it to try out generic lists when C# 2.0 came out. In 2010 I made a WPF interface, reformatted the code as per StyleCop, made more test cases and revisited the minimax algorithm, and finally upload it to github and release it under an opehn licence. 
 
 Anthony Steele
