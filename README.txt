@@ -12,7 +12,7 @@ The computer player can be slow, especially if the board is large and the skill 
 The user interface is in WPF.
 
 Licence: 
-Netsy is Open source, and is made available under the terms of the Microsoft Reciprocal License (Ms-RL).
+Hex is open source, and is made available under the terms of the Microsoft Reciprocal License (Ms-RL).
 This licence can be found in the included file "License.txt"
 Or online at  http://www.opensource.org/licenses/ms-rl.html
 
