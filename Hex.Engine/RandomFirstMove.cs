@@ -1,4 +1,12 @@
-﻿namespace Hex.Engine
+﻿//-----------------------------------------------------------------------
+// <copyright> 
+// Copyright (c) Anthony Steele 
+//  This source code is part of Hex http://github.com/AnthonySteele/Hex
+//  and is made available under the terms of the Microsoft Reciprocal License (Ms-RL)
+//  http://www.opensource.org/licenses/ms-rl.html
+// </copyright>
+//----------------------------------------------------------------------- 
+namespace Hex.Engine
 {
     using System;
 
@@ -10,28 +18,20 @@
     /// </summary>
     public class RandomFirstMove
     {
-        #region data
         private readonly int boardSize;
         private readonly Random randomNumbers;
-        #endregion
-
-        #region properties
-
-        public int BoardSize
-        {
-            get { return this.boardSize; }
-        }
-        #endregion
-
-        #region constructor
 
         public RandomFirstMove(int boardSize)
         {
             this.boardSize = boardSize;
             this.randomNumbers = new Random();
         }
-        #endregion
 
+        public int BoardSize
+        {
+            get { return this.boardSize; }
+        }
+        
         public Location RandomMove()
         {
             // center, corner or near edge
@@ -44,27 +44,28 @@
                 case 2:
                 case 3:
                 case 4:
-                    return RandomMiddle();
+                    return this.RandomMiddle();
+
                 case 5:
                 case 6:
                 case 7:
                 case 8:
                 case 9:
-                    return RandomNearEdge();
+                    return this.RandomNearEdge();
+
                 default:
                     throw new Exception("Choice out of range:" + choice);
-
             }
         }
 
         private Location RandomNearEdge()
         {
-            int middle = BoardSize / 2;
+            int middle = this.BoardSize / 2;
 
             // a chance to offset from the middle
-            if ((BoardSize > 6) && RandomBool())
+            if ((this.BoardSize > 6) && this.RandomBool())
             {
-                if (RandomBool())
+                if (this.RandomBool())
                 {
                     middle++;
                 }
@@ -74,10 +75,10 @@
                 }
             }
 
-            if (RandomBool())
+            if (this.RandomBool())
             {
                 // top
-                return new Location(middle, BoardSize - 2);
+                return new Location(middle, this.BoardSize - 2);
             }
             
             // bottom
@@ -86,11 +87,11 @@
 
         private Location RandomMiddle()
         {
-            int midPoint = (BoardSize / 2) - 1;
+            int midPoint = (this.BoardSize / 2) - 1;
             Location midLocation = new Location(midPoint, midPoint);
-            if ((BoardSize > 6) && RandomBool())
+            if ((this.BoardSize > 6) && this.RandomBool())
             {
-                return RandomNeighbour(midLocation);
+                return this.RandomNeighbour(midLocation);
             }
 
             return midLocation;
@@ -98,10 +99,10 @@
 
         private Location RandomNeighbour(Location loc)
         {
-            HexBoardNeighbours neighbourFinder = new HexBoardNeighbours(BoardSize);
+            HexBoardNeighbours neighbourFinder = new HexBoardNeighbours(this.BoardSize);
             Location[] neighbours = neighbourFinder.Neighbours(loc);
 
-            return RandomElement(neighbours);
+            return this.RandomElement(neighbours);
         }
 
         private Location RandomElement(Location[] locations)
@@ -114,8 +115,7 @@
         private bool RandomBool()
         {
             // equal chance of 1 or 0
-            return (this.randomNumbers.Next(2) == 0);
+            return this.randomNumbers.Next(2) == 0;
         }
-
     }
 }

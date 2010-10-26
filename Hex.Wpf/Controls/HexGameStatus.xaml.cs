@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
+﻿//-----------------------------------------------------------------------
+// <copyright> 
+// Copyright (c) Anthony Steele 
+//  This source code is part of Hex http://github.com/AnthonySteele/Hex
+//  and is made available under the terms of the Microsoft Reciprocal License (Ms-RL)
+//  http://www.opensource.org/licenses/ms-rl.html
+// </copyright>
+//----------------------------------------------------------------------- 
 namespace Hex.Wpf.Controls
 {
+    using System.Windows.Controls;
+
     /// <summary>
     /// Interaction logic for HexGameStatus.xaml
     /// </summary>

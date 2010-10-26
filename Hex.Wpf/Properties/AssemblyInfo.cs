@@ -1,6 +1,13 @@
-﻿using System.Reflection;
-using System.Resources;
-using System.Runtime.CompilerServices;
+﻿//-----------------------------------------------------------------------
+// <copyright> 
+// Copyright (c) Anthony Steele 
+//  This source code is part of Hex http://github.com/AnthonySteele/Hex
+//  and is made available under the terms of the Microsoft Reciprocal License (Ms-RL)
+//  http://www.opensource.org/licenses/ms-rl.html
+// </copyright>
+//----------------------------------------------------------------------- 
+
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 
