@@ -12,7 +12,7 @@ namespace Hex.Board.Test
     using NUnit.Framework;
 
     /// <summary>
-    /// Test methods for struct location 
+    /// Test methods for location struct 
     /// </summary>
     [TestFixture]
     public class LocationTest
