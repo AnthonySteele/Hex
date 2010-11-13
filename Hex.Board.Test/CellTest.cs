@@ -13,7 +13,7 @@ namespace Hex.Board.Test
     using NUnit.Framework;
 
     /// <summary>
-    /// Test methods for class Cell
+    /// Test methods for the Cell class 
     /// </summary>
     [TestFixture]
     public class CellTest
