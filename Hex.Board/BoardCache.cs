@@ -9,6 +9,7 @@
 namespace Hex.Board
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     
     /// <summary>
     /// A cache of boards
@@ -23,7 +24,7 @@ namespace Hex.Board
         private readonly List<HexBoard> available = new List<HexBoard>();
         private readonly List<HexBoard> inUse = new List<HexBoard>();
         private readonly int boardSize;
-
+        private readonly object locker = new object();
         #endregion
 
         public BoardCache(int boardSize)
@@ -62,25 +63,31 @@ namespace Hex.Board
         #region operations
         public HexBoard GetBoard()
         {
-            HexBoard result;
-
-            if (this.available.Count == 0)
+            lock (this.locker)
             {
-                // no boards available, so make a new one
-                result = new HexBoard(this.BoardSize);
-            }
-            else
-            {
-                // return any available board - less jiggering to take the end one
-                int boardIndex = this.available.Count - 1;
-                result = this.available[boardIndex];
-                this.available.RemoveAt(boardIndex);
-            }
+                HexBoard result;
+                if (this.available.Count == 0)
+                {
+                    // no boards available, so make a new one
+                    result = new HexBoard(this.BoardSize);
+                }
+                else
+                {
+                    // return any available board - less jiggering to take the end one
+                    int boardIndex = this.available.Count - 1;
+                    result = this.available[boardIndex];
+                    this.available.RemoveAt(boardIndex);
 
-            // board is now in use
-            this.inUse.Add(result);
+                    if (this.available.Count == 0)
+                    {
+                        Task.Factory.StartNew(() => this.available.Add(new HexBoard(this.BoardSize)));
+                    }
+                }
 
-            return result;
+                // board is now in use
+                this.inUse.Add(result);
+                return result;
+            }
         }
 
         /// <summary>
@@ -90,8 +97,11 @@ namespace Hex.Board
         /// <param name="board">the board to release</param>
         public void Release(HexBoard board)
         {
-            this.inUse.Remove(board);
-            this.available.Add(board);
+            lock (this.locker)
+            {
+                this.inUse.Remove(board);
+                this.available.Add(board);
+            }
         }
 
         #endregion
